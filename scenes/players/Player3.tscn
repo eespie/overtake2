@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/players/player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/players/Skid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/players/Arrow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Asset/PNG/Cars/car_blue_3.png" type="Texture" id=4]
+[ext_resource path="res://Asset/PNG/Cars/car_red_3.png" type="Texture" id=5]
+[ext_resource path="res://Asset/PNG/Cars/car_green_3.png" type="Texture" id=6]
+[ext_resource path="res://Asset/PNG/Cars/car_yellow_3.png" type="Texture" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 11.8189
+height = 21.7301
+
+[node name="Player" type="RigidBody2D" index="0"]
+
+input_pickable = true
+collision_layer = 2
+collision_mask = 3
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.1
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 1
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+driver_index = 0
+driver_name = null
+hit = 4
+car_power = 10.0
+car_color = "Blue"
+
+[node name="Skid" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Outline" type="Polygon2D" parent="." index="1"]
+
+visible = false
+rotation = 1.5708
+scale = Vector2( 0.35, 0.35 )
+polygon = PoolVector2Array( -38.0272, 65.2146, -41.9523, 53.4396, -42.5131, 28.2075, -41.5786, -0.575803, -42.7002, -38.8912, -42.1396, -55.8995, -36.3456, -66.9269, -26.6265, -73.0948, 0.661519, -73.4687, 27.0151, -73.095, 40.0984, -67.8617, 43.6496, -57.582, 44.2104, -40.013, 43.6498, -2.25824, 44.3975, 28.581, 43.4631, 51.1965, 39.5382, 63.906, 24.5858, 72.6905, 0.101335, 73.8121, -24.1963, 72.8776 )
+uv = PoolVector2Array(  )
+color = Color( 1, 0, 0, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Arrow" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="CarBody" type="Node2D" parent="." index="3"]
+
+position = Vector2( -0.173103, -6.26632e-07 )
+rotation = 1.5708
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Blue" type="Sprite" parent="CarBody" index="0"]
+
+visible = false
+rotation = -2.27374e-13
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Red" type="Sprite" parent="CarBody" index="1"]
+
+visible = false
+rotation = -2.27374e-13
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Green" type="Sprite" parent="CarBody" index="2"]
+
+position = Vector2( 0.662241, -0.636248 )
+rotation = -2.27374e-13
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Yellow" type="Sprite" parent="CarBody" index="3"]
+
+visible = false
+position = Vector2( 0.662241, -0.636248 )
+rotation = -2.27374e-13
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+
+visible = false
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Driver" type="Node2D" parent="." index="5"]
+
+_sections_unfolded = [ "Transform", "Z" ]
+
+[node name="Name" type="Label" parent="Driver" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -25.0
+margin_top = -35.0
+margin_right = 26.0
+margin_bottom = -21.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.464844, 0.464844, 0.464844, 1 )
+text = "Player 0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="body_entered" from="." to="." method="_on_object_collision"]
+
+

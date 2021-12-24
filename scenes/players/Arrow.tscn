@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Asset/PNG/Blue-arrow.png" type="Texture" id=1]
+[ext_resource path="res://Asset/PNG/Red-arrow.png" type="Texture" id=2]
+[ext_resource path="res://Asset/PNG/Green-arrow.png" type="Texture" id=3]
+[ext_resource path="res://Asset/PNG/Yellow-arrow.png" type="Texture" id=4]
+
+[node name="Arrow" type="Node2D"]
+
+visible = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Blue" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+offset = Vector2( 68, 0 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Red" type="Sprite" parent="." index="1"]
+
+visible = false
+texture = ExtResource( 2 )
+offset = Vector2( 68, 0 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Green" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 3 )
+offset = Vector2( 68, 0 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Yellow" type="Sprite" parent="." index="3"]
+
+visible = false
+texture = ExtResource( 4 )
+offset = Vector2( 68, 0 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+

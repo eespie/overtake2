@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/players/player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/players/Skid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Asset/PNG/Blue-arrow.png" type="Texture" id=3]
+[ext_resource path="res://Asset/PNG/Red-arrow.png" type="Texture" id=4]
+[ext_resource path="res://Asset/PNG/Green-arrow.png" type="Texture" id=5]
+[ext_resource path="res://Asset/PNG/Yellow-arrow.png" type="Texture" id=6]
+[ext_resource path="res://Asset/PNG/Cars/car_blue_5.png" type="Texture" id=7]
+[ext_resource path="res://Asset/PNG/Cars/car_red_5.png" type="Texture" id=8]
+[ext_resource path="res://Asset/PNG/Cars/car_green_5.png" type="Texture" id=9]
+[ext_resource path="res://Asset/PNG/Cars/car_yellow_5.png" type="Texture" id=10]
+
+[sub_resource type="PhysicsMaterial" id=2]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.8189
+height = 18.226
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+input_pickable = true
+physics_material_override = SubResource( 2 )
+gravity_scale = 0.0
+continuous_cd = 1
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z Index" ]
+driver_index = 0
+driver_name = null
+hit = 4
+car_power = 10
+car_color = "Blue"
+
+[node name="Skid" parent="." instance=ExtResource( 2 )]
+
+[node name="Outline" type="Polygon2D" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2( 0.35, 0.35 )
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( -42.9568, 44.0861, -39.2001, 55.3562, -30.7475, 62.8695, -21.5905, 65.2174, -12.6684, 65.9218, 17.8548, 65.9217, 27.2466, 64.5129, 35.4643, 60.0518, 40.395, 53.2427, 42.7429, 44.5554, 44.3861, -43.727, 38.9858, -55.9363, 32.1768, -62.7453, 16.9151, -70.0238, 0.479588, -71.1977, -15.2516, -70.0237, -24.1737, -66.9713, -30.5131, -63.6842, -36.1482, -57.5796, -40.3744, -49.127, -42.4875, -39.5004 )
+
+[node name="Arrow" type="Node2D" parent="."]
+visible = false
+
+[node name="Blue" type="Sprite" parent="Arrow"]
+texture = ExtResource( 3 )
+offset = Vector2( 68, 0 )
+
+[node name="Red" type="Sprite" parent="Arrow"]
+visible = false
+texture = ExtResource( 4 )
+offset = Vector2( 68, 0 )
+
+[node name="Green" type="Sprite" parent="Arrow"]
+visible = false
+texture = ExtResource( 5 )
+offset = Vector2( 68, 0 )
+
+[node name="Yellow" type="Sprite" parent="Arrow"]
+visible = false
+texture = ExtResource( 6 )
+offset = Vector2( 68, 0 )
+
+[node name="CarBody" type="Node2D" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Blue" type="Sprite" parent="CarBody"]
+rotation = -2.27374e-13
+texture = ExtResource( 7 )
+
+[node name="Red" type="Sprite" parent="CarBody"]
+visible = false
+rotation = -2.27374e-13
+texture = ExtResource( 8 )
+
+[node name="Green" type="Sprite" parent="CarBody"]
+visible = false
+position = Vector2( 0.662241, -0.636248 )
+rotation = -2.27374e-13
+texture = ExtResource( 9 )
+
+[node name="Yellow" type="Sprite" parent="CarBody"]
+visible = false
+position = Vector2( 0.662241, -0.636248 )
+rotation = -2.27374e-13
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Driver" type="Node2D" parent="."]
+
+[node name="Name" type="Label" parent="Driver"]
+margin_left = -25.0
+margin_top = -35.0
+margin_right = 26.0
+margin_bottom = -21.0
+custom_colors/font_color = Color( 0, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.464844, 0.464844, 0.464844, 1 )
+text = "Player 0"
+align = 1
+
+[connection signal="body_entered" from="." to="." method="_on_object_collision"]

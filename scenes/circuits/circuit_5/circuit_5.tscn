@@ -1,0 +1,1866 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://script/race.gd" type="Script" id=1]
+[ext_resource path="res://scenes/circuits/circuit_5/circuit_5.png" type="Texture" id=2]
+[ext_resource path="res://script/tires.gd" type="Script" id=3]
+[ext_resource path="res://Asset/PNG/Objects/tires_red.png" type="Texture" id=4]
+[ext_resource path="res://script/wp.gd" type="Script" id=5]
+[ext_resource path="res://script/Obstacle.gd" type="Script" id=6]
+[ext_resource path="res://scenes/gui/Camera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 14.8215
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 31.6176 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1058.64, 103.642 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1027.74, 100.394 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 130.916, 172.161 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 212.891, 164.689 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 111.746, 55.1225 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 63.1124, 63.597 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 63.1124, 23.1604 )
+
+[sub_resource type="CircleShape2D" id=10]
+
+custom_solver_bias = 0.0
+radius = 54.9537
+
+[sub_resource type="CircleShape2D" id=11]
+
+custom_solver_bias = 0.0
+radius = 32.7856
+
+[node name="Race" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+wp_nb = 6
+jocker_lap = true
+P1 = Vector2( 693, 302 )
+P2 = Vector2( 733, 354 )
+start_align = "HL"
+has_boost = false
+start_boost = false
+has_x2 = false
+start_x2 = false
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 0.76355, -1.06366 )
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -120 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Line2D" type="Line2D" parent="Background" index="0"]
+
+points = PoolVector2Array(  )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = 1
+sharp_limit = 2.0
+round_precision = 8
+
+[node name="Tires" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+z_index = 2
+_sections_unfolded = [ "Z Index" ]
+
+[node name="tires1" type="RigidBody2D" parent="Tires" index="0"]
+
+editor/display_folded = true
+position = Vector2( 613.889, 556.62 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Angular", "Collision", "Linear" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires1" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires1" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires20" type="RigidBody2D" parent="Tires" index="1"]
+
+editor/display_folded = true
+position = Vector2( 148.065, 384.277 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Angular", "Collision", "Linear" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires20" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires20" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires21" type="RigidBody2D" parent="Tires" index="2"]
+
+editor/display_folded = true
+position = Vector2( 130.044, 422.557 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Angular", "Collision", "Linear" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires21" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires21" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires2" type="RigidBody2D" parent="Tires" index="3"]
+
+editor/display_folded = true
+position = Vector2( 168.915, 423.777 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires2" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires2" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires4" type="RigidBody2D" parent="Tires" index="4"]
+
+editor/display_folded = true
+position = Vector2( 1173.55, 637.036 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires4" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires4" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires5" type="RigidBody2D" parent="Tires" index="5"]
+
+editor/display_folded = true
+position = Vector2( 674.677, 247.264 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires5" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires5" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires17" type="RigidBody2D" parent="Tires" index="6"]
+
+editor/display_folded = true
+position = Vector2( 1069.92, 54.7008 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires17" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires17" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires18" type="RigidBody2D" parent="Tires" index="7"]
+
+editor/display_folded = true
+position = Vector2( 672.891, 212.737 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires18" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires18" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires6" type="RigidBody2D" parent="Tires" index="8"]
+
+editor/display_folded = true
+position = Vector2( 1033.23, 50.9708 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires6" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires6" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires19" type="RigidBody2D" parent="Tires" index="9"]
+
+editor/display_folded = true
+position = Vector2( 996.492, 50.2715 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires19" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires19" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires7" type="RigidBody2D" parent="Tires" index="10"]
+
+editor/display_folded = true
+position = Vector2( 1172.79, 543.308 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires7" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires7" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires3" type="RigidBody2D" parent="Tires" index="11"]
+
+editor/display_folded = true
+position = Vector2( 1170.15, 676.346 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires3" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires3" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires8" type="RigidBody2D" parent="Tires" index="12"]
+
+editor/display_folded = true
+position = Vector2( 732.658, 727.983 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires8" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires8" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires9" type="RigidBody2D" parent="Tires" index="13"]
+
+editor/display_folded = true
+position = Vector2( 105.855, 649.396 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires9" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires9" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires15" type="RigidBody2D" parent="Tires" index="14"]
+
+editor/display_folded = true
+position = Vector2( 154.009, 722.476 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires15" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires15" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires16" type="RigidBody2D" parent="Tires" index="15"]
+
+editor/display_folded = true
+position = Vector2( 129.129, 684.875 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires16" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires16" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires10" type="RigidBody2D" parent="Tires" index="16"]
+
+editor/display_folded = true
+position = Vector2( 151.404, 456.026 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires10" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires10" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires11" type="RigidBody2D" parent="Tires" index="17"]
+
+editor/display_folded = true
+position = Vector2( 1175.5, 591.667 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires11" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires11" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires12" type="RigidBody2D" parent="Tires" index="18"]
+
+editor/display_folded = true
+position = Vector2( 751.947, 691.503 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires12" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires12" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires13" type="RigidBody2D" parent="Tires" index="19"]
+
+editor/display_folded = true
+position = Vector2( 193.838, 729.843 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires13" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires13" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tires14" type="RigidBody2D" parent="Tires" index="20"]
+
+editor/display_folded = true
+position = Vector2( 1166.43, 716.427 )
+input_pickable = false
+collision_layer = 4
+collision_mask = 7
+mode = 0
+mass = 1.5
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+hit = 10
+
+[node name="Sprite" type="Sprite" parent="Tires/tires14" index="0"]
+
+scale = Vector2( 0.519948, 0.511015 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tires/tires14" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Players" type="Node2D" parent="." index="2"]
+
+z_index = 3
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="WP" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+visible = false
+
+[node name="WP0" type="Area2D" parent="WP" index="0"]
+
+editor/display_folded = true
+position = Vector2( 481.132, 315.404 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP0" index="0"]
+
+position = Vector2( 0, 60.6023 )
+scale = Vector2( 1.43872, 3.55163 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WP1" type="Area2D" parent="WP" index="1"]
+
+editor/display_folded = true
+position = Vector2( 270.645, 162.059 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP1" index="0"]
+
+position = Vector2( 0, -52.4857 )
+scale = Vector2( 1.43872, 3.37661 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WP2" type="Area2D" parent="WP" index="2"]
+
+editor/display_folded = true
+position = Vector2( 239.411, 602.537 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP2" index="0"]
+
+position = Vector2( -61.2007, 61.2007 )
+rotation = 0.785398
+scale = Vector2( 1.43872, 4.35468 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WP3" type="Area2D" parent="WP" index="3"]
+
+editor/display_folded = true
+position = Vector2( 800.406, 556.168 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP3" index="0"]
+
+position = Vector2( 0, -43.7821 )
+scale = Vector2( 1.64859, 3.25825 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WP4" type="Area2D" parent="WP" index="4"]
+
+editor/display_folded = true
+position = Vector2( 1039.48, 600.449 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP4" index="0"]
+
+position = Vector2( 68.0968, 68.0968 )
+rotation = -0.785398
+scale = Vector2( 1.43872, 4.92502 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WP5" type="Area2D" parent="WP" index="5"]
+
+editor/display_folded = true
+position = Vector2( 1042.64, 368.288 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WP5" index="0"]
+
+position = Vector2( 85.8032, -85.8032 )
+rotation = 0.785398
+scale = Vector2( 1.43872, 5.83169 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="WPJocker" type="Area2D" parent="WP" index="6"]
+
+editor/display_folded = true
+position = Vector2( 782.509, 95.7758 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+index = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WP/WPJocker" index="0"]
+
+position = Vector2( 0, 1.95531 )
+scale = Vector2( 1.43872, 3.28391 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="road track" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.5
+angular_damp = 1.0
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="straight" type="CollisionPolygon2D" parent="road track" index="0"]
+
+position = Vector2( 0, 61.0003 )
+build_mode = 0
+polygon = PoolVector2Array( 128.661, 522.622, 639.197, 521.409, 645.444, 472.683, 665.509, 434.336, 702.964, 407.583, 743.54, 394.652, 770.739, 392.869, 839.904, 393.315, 889.844, 401.341, 928.19, 427.202, 954.052, 466.44, 963.415, 521.73, 1023.16, 520.496, 1025.31, 650.315, 937.554, 649.7, 885.831, 634.54, 853.281, 603.328, 836.783, 564.536, 830.987, 523.514, 769.454, 523.514, 762.766, 573.453, 743.986, 610.462, 706.085, 637.661, 644.999, 650.183, 255.721, 650.047, 222.743, 648.808, 175.033, 629.635, 145.158, 595.748, 132.228, 559.185 )
+
+[node name="straight2" type="CollisionPolygon2D" parent="road track" index="1"]
+
+position = Vector2( 0, 125 )
+build_mode = 0
+polygon = PoolVector2Array( 319.881, 138.285, 1023.87, 136.778, 1023.87, 266.597, 444.44, 266.98, 386.987, 256.408, 344.701, 225.614, 325.857, 186.545 )
+
+[node name="turns 1 2 3" type="CollisionPolygon2D" parent="road track" index="2"]
+
+position = Vector2( 0, 63 )
+build_mode = 0
+polygon = PoolVector2Array( 1025.6, 8.25021, 1050.6, 11.5581, 1070.81, 21.4819, 1083.31, 40.2267, 1088.82, 65.2199, 1090.29, 199.374, 1121.16, 205.255, 1141.75, 223.265, 1151.34, 248.699, 1151.92, 525.714, 1152.39, 599.933, 1136.27, 634.01, 1103.66, 647.933, 1025.25, 650.064 )
+
+[node name="road dirt" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 1.5
+angular_damp = 1.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="road dirt" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1024.39, 71.1723, 768.035, 70.0123, 640.437, 135.358, 571.611, 134.585, 534.878, 143.865, 517.865, 167.064, 512.452, 194.131, 512.065, 261.796, 641.597, 261.41, 641.597, 199.931, 768.808, 136.131, 1024.78, 134.971 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="road dirt" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 448.968, 260.544, 449.431, 196.71, 443.417, 153.691, 427.69, 118.074, 402.249, 91.7074, 360.618, 73.6673, 312.974, 70.4293, 254.69, 69.9667, 204.27, 77.3678, 158.939, 105.584, 137.198, 143.515, 128.409, 180.983, 128.409, 262.857, 257.465, 261.469, 257.003, 199.948, 319.449, 199.485, 320.375, 262.395 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="road dirt" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( 321.3, 391.913, 191.781, 390.988, 192.243, 454.36, 322.225, 455.748 )
+
+[node name="road dirt uphill" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+space_override = 1
+gravity_distance_scale = 1.0
+gravity_vec = Vector2( -61, -126 )
+gravity = 1024.0
+linear_damp = 1.5
+angular_damp = 1.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="road dirt uphill" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 257.928, 262.395, 128.872, 263.32, 192.243, 390.988, 321.3, 391.451 )
+
+[node name="road dirt downhill" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+space_override = 1
+gravity_distance_scale = 1.0
+gravity_vec = Vector2( -61, 126 )
+gravity = 1024.0
+linear_damp = 1.5
+angular_damp = 1.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="road dirt downhill" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 321.459, 456.976, 192.401, 455.943, 129.3, 583.835, 259.511, 581.904 )
+
+[node name="Obstacles" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+visible = false
+
+[node name="Border North" type="StaticBody2D" parent="Obstacles" index="0"]
+
+editor/display_folded = true
+position = Vector2( 0, -34 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Border North" index="0"]
+
+position = Vector2( 626.332, 7.07197 )
+scale = Vector2( 0.677809, 0.59125 )
+shape = SubResource( 3 )
+
+[node name="Border South" type="StaticBody2D" parent="Obstacles" index="1"]
+
+editor/display_folded = true
+position = Vector2( 0, 35 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Border South" index="0"]
+
+position = Vector2( 633.83, 774.926 )
+scale = Vector2( 0.677809, 0.59125 )
+shape = SubResource( 4 )
+
+[node name="Border West" type="StaticBody2D" parent="Obstacles" index="2"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Border West" index="0"]
+
+position = Vector2( -49.8776, 366.429 )
+scale = Vector2( 0.372967, 2.54552 )
+shape = SubResource( 5 )
+
+[node name="Border East" type="StaticBody2D" parent="Obstacles" index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Border East" index="0"]
+
+position = Vector2( 1343.95, 365.96 )
+scale = Vector2( 0.303184, 2.54552 )
+shape = SubResource( 6 )
+
+[node name="Stand" type="StaticBody2D" parent="Obstacles" index="4"]
+
+editor/display_folded = true
+position = Vector2( 514.95, 470.699 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stand" index="0"]
+
+position = Vector2( -0.396973, -1.1907 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Stand2" type="StaticBody2D" parent="Obstacles" index="5"]
+
+editor/display_folded = true
+position = Vector2( 872.564, 201.311 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Stand2" index="0"]
+
+position = Vector2( -0.396973, -1.1907 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tent" type="StaticBody2D" parent="Obstacles" index="6"]
+
+editor/display_folded = true
+position = Vector2( 499.723, 21.9099 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tent" index="0"]
+
+shape = SubResource( 8 )
+
+[node name="Wall1" type="StaticBody2D" parent="Obstacles" index="7"]
+
+editor/display_folded = true
+position = Vector2( 704.448, 422.922 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall1" index="0"]
+
+position = Vector2( 0.215942, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall2" type="StaticBody2D" parent="Obstacles" index="8"]
+
+editor/display_folded = true
+position = Vector2( 832.739, 423.354 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall2" index="0"]
+
+position = Vector2( 0.215942, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall3" type="StaticBody2D" parent="Obstacles" index="9"]
+
+editor/display_folded = true
+position = Vector2( 960.166, 422.922 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall3" index="0"]
+
+position = Vector2( 0.215942, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall4" type="StaticBody2D" parent="Obstacles" index="10"]
+
+editor/display_folded = true
+position = Vector2( 993.744, 518.893 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall4" index="0"]
+
+position = Vector2( 0.215942, 0 )
+rotation = 1.5708
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall5" type="StaticBody2D" parent="Obstacles" index="11"]
+
+editor/display_folded = true
+position = Vector2( 800.154, 646.859 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Wall5" index="0"]
+
+position = Vector2( 0.215942, 0 )
+rotation = 1.5708
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tires" type="StaticBody2D" parent="Obstacles" index="12"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.5
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Pause" ]
+hit = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Tires" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 467.574, 86.5145, 493.992, 86.5145, 493.121, 248.508, 485.573, 257.217, 473.67, 257.217, 465.251, 247.637 )
+
+[node name="Tires2" type="StaticBody2D" parent="Obstacles" index="13"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.5
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Pause" ]
+hit = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Tires2" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 258.746, 213.145, 263.644, 203.349, 274.14, 199.85, 284.986, 204.398, 287.435, 215.944, 284.286, 234.137, 291.983, 265.625, 304.229, 292.565, 316.824, 316.706, 329.419, 338.747, 345.513, 367.087, 352.51, 401.024, 352.51, 434.611, 351.811, 465.049, 338.516, 497.937, 325.571, 523.827, 312.975, 549.368, 300.004, 573.682, 288.908, 579.896, 277.812, 576.789, 273.373, 563.918, 291.127, 534.18, 304.886, 507.105, 315.982, 482.25, 325.303, 458.726, 326.191, 431.207, 326.191, 403.245, 321.753, 375.726, 307.106, 353.09, 290.239, 323.796, 267.159, 275.417, 260.058, 242.572 )
+
+[node name="Tree1" type="StaticBody2D" parent="Obstacles" index="14"]
+
+editor/display_folded = true
+position = Vector2( 42.1439, 106.677 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree1" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree6" type="StaticBody2D" parent="Obstacles" index="15"]
+
+editor/display_folded = true
+position = Vector2( 49.7691, 718.982 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree6" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree2" type="StaticBody2D" parent="Obstacles" index="16"]
+
+editor/display_folded = true
+position = Vector2( 18.438, 224.548 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree2" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree3" type="StaticBody2D" parent="Obstacles" index="17"]
+
+editor/display_folded = true
+position = Vector2( 177.136, -5.92651 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree3" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree4" type="StaticBody2D" parent="Obstacles" index="18"]
+
+editor/display_folded = true
+position = Vector2( 1232.71, 114.579 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree4" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree5" type="StaticBody2D" parent="Obstacles" index="19"]
+
+editor/display_folded = true
+position = Vector2( 1264.74, 646.819 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree5" index="0"]
+
+shape = SubResource( 10 )
+
+[node name="Tree7" type="StaticBody2D" parent="Obstacles" index="20"]
+
+editor/display_folded = true
+position = Vector2( 1257.11, 395.949 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree7" index="0"]
+
+shape = SubResource( 11 )
+
+[node name="Tree8" type="StaticBody2D" parent="Obstacles" index="21"]
+
+editor/display_folded = true
+position = Vector2( 1244.15, 204.556 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree8" index="0"]
+
+shape = SubResource( 11 )
+
+[node name="Tree9" type="StaticBody2D" parent="Obstacles" index="22"]
+
+editor/display_folded = true
+position = Vector2( 99.6015, 32.2263 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+_sections_unfolded = [ "Collision", "Transform" ]
+hit = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Tree9" index="0"]
+
+shape = SubResource( 11 )
+
+[node name="Terrain" type="Node2D" parent="." index="9"]
+
+editor/display_folded = true
+visible = false
+
+[node name="Grass South" type="Area2D" parent="Terrain" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 1.0
+angular_damp = 0.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Grass South" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 131.331, 612.571, -1.04364, 614.766, 0.274567, 840.084, 1279.73, 841.224, 1281.01, 670.348, 1151.56, 670.348, 1136.2, 698.871, 1104.76, 712.035, 958.487, 712.766, 909.486, 705.453, 863.411, 678.393, 837.814, 631.587, 830.5, 584.049, 770.53, 584.78, 766.873, 622.079, 748.589, 666.691, 712.753, 695.945, 657.902, 712.766, 267.362, 712.766, 219.824, 709.11, 175.943, 690.094, 145.958, 657.915 )
+
+[node name="Grass East" type="Area2D" parent="Terrain" index="1"]
+
+editor/display_folded = true
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 1.0
+angular_damp = 0.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Grass East" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1152.72, 668.962, 1281.43, 670.425, 1280.94, 319.38, 1280.85, 259.386, 1280.52, 24.2722, 1280.32, -119.565, 1059.76, -121.148, 1051.15, 72.7358, 1069.51, 83.4526, 1083.35, 104.209, 1090.67, 135.14, 1089.82, 263.063, 1118.34, 268.182, 1142.48, 285.004, 1154.18, 326.69 )
+
+[node name="Grass Inside" type="Area2D" parent="Terrain" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 1.0
+angular_damp = 0.5
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Grass Inside" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1024.16, 392.029, 880.881, 391.924, 770.091, 391.842, 624.315, 391.734, 460.629, 391.613, 413.564, 387.864, 413.98, 582.788, 640.141, 582.788, 644.306, 538.638, 661.383, 503.236, 691.371, 473.247, 731.772, 459.086, 783.002, 453.672, 845.477, 455.754, 892.958, 464.084, 926.695, 486.992, 950.019, 521.145, 960.848, 565.711, 961.265, 581.122, 1024.57, 582.371 )
+
+[node name="Sand North" type="Area2D" parent="Terrain" index="3"]
+
+editor/display_folded = true
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 5.0
+angular_damp = 8.0
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Sand North" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 244.999, -121.807, 1059.31, -121.496, 1049.65, 73.1416, 1019.97, 69.3455, 770.116, 70.3808, 641.514, 133.535, 563.175, 134.084, 535.568, 144.578, 517.967, 165.974, 511.41, 198.759, 512.101, 261.988, 449.982, 262.333, 449.637, 197.799, 447.221, 165.014, 431.692, 125.673, 404.942, 93.7316, 351.796, 72.6803, 248.563, 71.0269 )
+
+[node name="Sand West" type="Area2D" parent="Terrain" index="4"]
+
+editor/display_folded = true
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 5.0
+angular_damp = 8.0
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Sand West" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 127.794, 582.77, 130.566, 612.468, -0.102364, 615.635, 0.599731, -119.265, 244.999, -121.411, 247.771, 71.0269, 206.987, 77.7582, 167.786, 93.9928, 139.277, 135.173, 128.586, 182.201, 127.646, 261.007, 191.94, 391.269, 192.336, 453.04 )
+
+[node name="Inside Sand North" type="Area2D" parent="Terrain" index="5"]
+
+editor/display_folded = true
+position = Vector2( 640.095, 296.562 )
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 5.0
+angular_damp = 8.0
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Inside Sand North" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 383.727, -34.1731, 1.10327, -34.1731, 1.57166, -96.929, 129.425, -160.622, 383.259, -161.09 )
+
+[node name="Inside Sand West" type="Area2D" parent="Terrain" index="6"]
+
+editor/display_folded = true
+position = Vector2( 640.495, 488.243 )
+input_pickable = true
+space_override = 1
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 5.0
+angular_damp = 8.0
+collision_mask = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Inside Sand West" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -226.822, -99.501, -260.815, -110.577, -295.19, -139.605, -313.142, -175.89, -320.017, -215.994, -320.017, -288.181, -383.037, -289.709, -383.419, -225.924, -319.635, -98.3551, -319.253, -33.4248, -381.509, 92.9984, -226.441, 94.1442 )
+
+[node name="TweenPlayer" type="Tween" parent="." index="10"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="TweenStart" type="Tween" parent="." index="11"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Camera" parent="." index="12" instance=ExtResource( 7 )]
+
+[connection signal="body_entered" from="WP/WP0" to="WP/WP0" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WP1" to="WP/WP1" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WP2" to="WP/WP2" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WP3" to="WP/WP3" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WP4" to="WP/WP4" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WP5" to="WP/WP5" method="_on_WP_body_entered"]
+
+[connection signal="body_entered" from="WP/WPJocker" to="WP/WPJocker" method="_on_WPJocker_body_entered"]
+
+[connection signal="tween_completed" from="TweenPlayer" to="." method="_on_TweenPlayer_completed"]
+
+[connection signal="tween_completed" from="TweenStart" to="." method="_on_TweenStart_completed"]
+
+

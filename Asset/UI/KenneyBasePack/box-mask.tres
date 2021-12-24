@@ -1,0 +1,7 @@
+[gd_resource type="StreamTexture" format=2]
+
+[resource]
+
+flags = 4
+load_path = "res://.import/box-mask.png-74888af0a36d76843be9f65d42f97aa0.stex"
+
